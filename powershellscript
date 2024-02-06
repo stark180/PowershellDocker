@@ -1,0 +1,11 @@
+# Import the DockerHelper module
+Import-Module .\DockerHelper.psm1
+
+# Build the Docker image
+Build-DockerImage -Dockerfile "Dockerfile" -Tag "fibonacci_container" -Context "."
+
+# Run the Fibonacci container
+Run-DockerContainer -ImageName "fibonacci_container"
+
+# Run the Fibonacci container with a specific Fibonacci number
+Run-DockerContainer -ImageName "fibonacci_container" -DockerParams "-n 10"
